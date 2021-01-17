@@ -9,7 +9,7 @@ Para crear el modelo de predicción, partimos de un [dataset que contine unas 16
 
  ### Estudio y limpieza 
  A grandes rasgos podemos diferenciar dos grandes tipos de columnas en el conjunto: `las variables no numéricas` (describen atributos de la pista como su nombre, artista, identificador) y `las variables numéricas` (describen diversas métricas del sonido, duración o incluso otros atributos como el año de lanzamiento). Para nuestro modelo de regresión, utilizaremos `**las variables numéricas**`. 
- Es conveniente además conocer cuáles de estás métricas guardan un mayor grado de correlación con la variable a predecir ya que así nuestro modelo de regresión ofrecerá resultados más precisos y fiables que si utilizamos variables menos significativas. ![Correlación de] (/ path / to / img.jpg)
+ Es conveniente además conocer cuáles de estás métricas guardan un mayor grado de correlación con la variable a predecir ya que así nuestro modelo de regresión ofrecerá resultados más precisos y fiables que si utilizamos variables menos significativas. ![Correlación de las variables numéricas con la popularidad] (/datasets/popularity_corr.png)
 
 ## La aplicación
 La aplicación está basada en un modelo cliente-servidor comunicados a través de un socket TCP. La idea es tener un proceso conectado a la interfaz python de spotify [(spotipy)](https://spotipy.readthedocs.io/en/2.16.1/#module-spotipy.client) para recibir los álbumes *new_releases* a través de ella y poder enviarlos al segundo proceso en formato csv para que este pueda realizar la predicción a traves del modelo de regresión. A continuación exponemos los detalles de ambos scripts:
