@@ -1,10 +1,11 @@
 # Spotify Pop Predictor
+Proyecto final de la asignatura Cloud Computing and Big Data de la Universidad Complutense de Madrid (Curso 2020-21)
 
 ## Introducción
 La idea de la aplicación es predecir en streaming la popularidad de las canciones de las *new_releases* de Spotify. Para ello haremos uso de un modelo de regresión lineal previamente entrenado a partir de un [dataset de unas 160k canciones](https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks) que contienen diferentes parámetros y métricas de los distintos temas.
 
 ## El modelo y los datos
-
+Para crear el modelo de predicción, partimos de un [dataset que contine unas 160k canciones](https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks) alojadas en Spotify cuyo año de publicación va desde 1921 hasta la actualidad. Cada canción viene descrita en el dataset por las siguientes variables: `id`, `name`, `artists`, `year`, `valence`, `acousticness`, `danceability`, `duration_ms`, `energy`, `explicit`, `instrumentalness`, `key`, `liveness`, `loudness`, `mode`, `popularity`, `release_date`, `speechiness` y `tempo`. Podemos observar que se trata de una serie de variables y métricas muy heterogénes y quizá no todas sean relevantes para nuestro modelo de regresión. Por ello conviene relizar un estudio y limpieza previa del conjunto para conservar solo aquellas veriables útiles para el predictor.  
 
 ## La aplicación
 La aplicación está basada en un modelo cliente-servidor comunicados a través de un socket TCP. La idea es tener un proceso conectado a la interfaz python de spotify [(spotipy)](https://spotipy.readthedocs.io/en/2.16.1/#module-spotipy.client) para recibir los álbumes *new_releases* a través de ella y poder enviarlos al segundo proceso en formato csv para que este pueda realizar la predicción a traves del modelo de regresión. A continuación exponemos los detalles de ambos scripts:
