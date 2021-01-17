@@ -14,4 +14,9 @@ La aplicación está basada en un modelo cliente-servidor comunicados a través 
 - **spotify_processing** es el proceso que conecta con **spotify_releases** para recibir los nuevos albumes como tablas de pistas, las formatea adecuadamente y las pasa por el modelo de predicción. Antes de conectar con **spotify_releases**, el proceso crea y entrena el modelo a partir de los datos de *spotify_model.csv*.
 
 ## La interfaz Spotipy
-Spotipy es una interfaz python que ofrece Spotify a los desarrolladores para tener completo acceso a los datos que ofrece Spotify. Para poder utilizarla, se requiere un proceso previo de autenticación 
+Spotipy es una interfaz python que ofrece Spotify a los desarrolladores para tener completo acceso a los datos que ofrece Spotify. Para poder utilizarla, se requiere un proceso previo de autenticación mediante un identificador del cliente y una clave secreta que se pueden pasar como argumento del objeto *SpotifyClientCredentials()* o colocarse como variables de entorno en que se ejecuta el proceso. Para obtener dichas claves se deben seguir los siguientes pasos:
+
+ 1. Registar una cuenta de usuario ordinario de Spotify (o iniciar sesión en una previamente existente)
+ 2. Entrar en la plataforma de [desarrolladores de Spotify](https://developer.spotify.com/dashboard)
+ 3. Seleccionar el botón **Create an app** y especificar un nombre y una descripción de la aplicación así como aceptar todos los términos de uso
+ 4. Una vez creada la aplicación en el developer dashboard de spotify, tan solo tenemos que consultar las claves asociadas a ella
