@@ -53,4 +53,16 @@ Partiendo de un esquema similar en el que recibimos en streaming nuevas cancione
  Para este modelo hemos empleado Scikit-Learn, hemos tranformado con ayuda de la función "popularidad", los valores de la polularidad que van del rango 0 a 100 en ceros o unos, en función de si este valor es mayor o menor que 30. De esta forma transformamos el problema de clasifación de 100 clases a 2 clases. Con este modelo se obtuvo un porcentaje de acierto en torno al 99%.
 
  ### Support vector machines SVM con kernel "gaussiano"
- Hemos empleaso Scikit-Learn con este modelo y se pretende predecir la popularidad y clasificarla en 100 clases (0...100). Con este modelo se obtuvo un porcentaje de acierto en torno al 60%.  
+ Hemos empleaso Scikit-Learn con este modelo y se pretende predecir la popularidad y clasificarla en 100 clases (0...100). Con este modelo se obtuvo un porcentaje de acierto en torno al 60%.
+
+
+ ## Autores
+Este proyecto ha sido desarrollado por cuatro estudiantes de Ingeniería Informática de la Facultad Informática de la universidad Complutense de Madrid.
+
+- Iago Zamorano - [Github]([https://github.com/iagger]
+
+- José Jímenez - [Github](https://github.com/jotajjjj)
+
+- David Cantador - [Github](https://github.com/Rehis)
+
+- Begoña Martínez - [Github](https://github.com/begomartinezmr)
