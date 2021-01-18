@@ -7,6 +7,7 @@ from pyspark.ml.classification import LogisticRegression
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
 from pyspark.sql.functions import col, isnan,when,trim
 
+
 #se supone que limpia de nulos, pero por lo visto no hay nulos
 #lo que hay son caracteres especiales
 def to_null(c):
