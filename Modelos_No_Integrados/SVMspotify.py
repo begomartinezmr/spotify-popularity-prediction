@@ -14,6 +14,19 @@ from sklearn.svm import SVC
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.model_selection import train_test_split
 
+#tranforma un valor del array en popular 1, o no popular.
+##se eligió el valor de 30 para determinar cuando es popular o no
+# con esta función pasamos de 100 clases a dos clases, de forma que
+# pasamos a un problema de clasificación binaria.
+def popular(Y):
+    N=np.arange(0,len(Y))
+    ret = np.zeros((Y.shape))
+    for i in N:
+        if( Y[i]>30.0):
+            ret[i]=1
+        else:
+            ret[i]=0
+    return ret
 
 def carga_csv(file_name):
     valores=read_csv(file_name,header=None).values
@@ -53,10 +66,15 @@ sigma_vec=[0.01 ,0.03 ,0.1 ,0.3 ,1, 3 ,10,30]
 ##modelo con kerner gaussiano
 svm=SVC(kernel='rbf',C=C_vec[7],gamma=1/(2 * sigma_vec[7]**2))
 
+#descomentar para pasar a clasificacion binaria
+#Y_train=popular(Y_train)
 
 clf=svm.fit(X_train,Y_train.ravel())
 
 pre=clf.predict(X_test)
+#descomentar para pasar a clasificación binaria
+#Y_test=popular(Y_test)
+
 num_correct=sum( Y_test==pre for  Y_test, pre in zip(Y_test,pre)   )
 porce=  (num_correct/ len(Y_test)  )*100
 print(porce)
