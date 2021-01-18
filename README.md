@@ -59,7 +59,7 @@ Partiendo de un esquema similar en el que recibimos en streaming nuevas cancione
  ## Autores
 Este proyecto ha sido desarrollado por cuatro estudiantes de Ingeniería Informática de la Facultad Informática de la universidad Complutense de Madrid.
 
-- Iago Zamorano - [Github]([https://github.com/iagger]
+- Iago Zamorano - [Github](https://github.com/iagger)
 
 - José Jímenez - [Github](https://github.com/jotajjjj)
 
