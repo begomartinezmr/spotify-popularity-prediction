@@ -43,3 +43,14 @@ Como ya detallamos en el anterior apartado *La aplicación*, el programa está f
   ```
  Terminal 2 $ spark-submit spotify_processing.py
  ```
+## Modelos alternativos
+Partiendo de un esquema similar en el que recibimos en streaming nuevas canciones, podemos proponer otros modelos alternativos con los que trabajar con los datos que no sean la prediccion de popularidad mediante regresión lineal que hemos implementado.  
+
+ ### Clasificación binaria *explicit* mediante Regresión Logística
+ En este modelo nos valemos de la libería nativa de Spark [Spark-ML](https://spark.apache.org/docs/2.0.0-preview/ml-guide.html) , para construir y entrenar el modelo. Tratamos de predecir si una canción contiene contenido explícito (que no es recomendable para niños o lenguaje ofensivo) o no. Para ellos hemos utilizado las columnas `valence`,`year`,`acousticness` y `danceability` del dataset y la característica a predecir es `explicit`, las pruebas muestran en torno a un 75% de acierto.
+
+ ### Clasificación binaria de la popularidad mediante redes neuronales
+ Para este modelo hemos empleado Scikit-Learn, hemos tranformado con ayuda de la función "popularidad", los valores de la polularidad que van del rango 0 a 100 en ceros o unos, en función de si este valor es mayor o menor que 30. De esta forma transformamos el problema de clasifación de 100 clases a 2 clases. Con este modelo se obtuvo un porcentaje de acierto en torno al 99%.
+
+ ### Support vector machines SVM con kernel "gaussiano"
+ Hemos empleaso Scikit-Learn con este modelo y se pretende predecir la popularidad y clasificarla en 100 clases (0...100). Con este modelo se obtuvo un porcentaje de acierto en torno al 60%.  
