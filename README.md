@@ -21,7 +21,7 @@ Para crear el modelo de predicción, partimos de un [dataset que contine unas 16
 ## La aplicación
 La aplicación está basada en un modelo cliente-servidor comunicados a través de un socket TCP. La idea es tener un proceso conectado a la interfaz python de spotify [(spotipy)](https://spotipy.readthedocs.io/en/2.16.1/#module-spotipy.client) para recibir los álbumes *new_releases* a través de ella y poder enviarlos al segundo proceso en formato csv para que este pueda realizar la predicción a traves del modelo de regresión. A continuación exponemos los detalles de ambos scripts:
 
- - **spotify_releases** es el proceso que se conecta con la interfaz de spotify y recupera la información de las *new_releases*. Éste método recupera albumes enteros, por lo que el proceso debe encargarse de recuperar las pistas que conforman cada album. Una vez las recupera todas, las envía al proceso **spotify_processing** como una tabla de pistas con sus correspondiente atributos en formato csv. Cabe destacar que tan solo recuperaremos aquellos atributos que utiliza nuestro modelo de predicción que detallamos anteriormente.
+ - **spotipy_releases** es el proceso que se conecta con la interfaz de spotify y recupera la información de las *new_releases*. Éste método recupera albumes enteros, por lo que el proceso debe encargarse de recuperar las pistas que conforman cada album. Una vez las recupera todas, las envía al proceso **spotify_processing** como una tabla de pistas con sus correspondiente atributos en formato csv. Cabe destacar que tan solo recuperaremos aquellos atributos que utiliza nuestro modelo de predicción que detallamos anteriormente.
 
 - **spotify_processing** es el proceso que conecta con **spotify_releases** para recibir los nuevos albumes como tablas de pistas, las formatea adecuadamente y las pasa por el modelo de predicción. Antes de conectar con **spotify_releases**, el proceso crea y entrena el modelo a partir de los datos de *spotify_model.csv*.
 
@@ -32,3 +32,14 @@ Spotipy es una interfaz python que ofrece Spotify a los desarrolladores para ten
  2. Entrar en la plataforma de [desarrolladores de Spotify](https://developer.spotify.com/dashboard)
  3. Seleccionar el botón `Create an app` y especificar un nombre y una descripción de la aplicación así como aceptar todos los términos de uso
  4. Una vez creada la aplicación en el developer dashboard de spotify, tan solo tenemos que consultar las claves asociadas a ella
+
+## Utilización de la aplicación
+Como ya detallamos en el anterior apartado *La aplicación*, el programa está formado por dos scripts de python comunicados a través de un socket, por lo que necesitaremos dos terminales en las que ejecutar cada uno de ellos.
+ 1. Primero ejecutamos el script *spotify_releases.py* como un script python ordinario (asumiendo que se cumplen los requisitos de autenticación de spotify detallados en el apartado anterior)
+ ```
+ Terminal 1 $ python3 spotipy_releases.py
+ ```
+ 2. Cuando el primer proceso quede a la espera de una conexión TCP, lanzamos el script *spotify_processing.py* como un *spark job*
+  ```
+ Terminal 2 $ spark-submit spotify_processing.py
+ ```
