@@ -45,7 +45,7 @@ dataset.head()
 ##para mirar el esqueta del dataset(tipos)
 dataset.printSchema()
 ##columnas que vamos a usar para entrenar el modelo, se puede aniadir o quitar
-colums_name=['valence','year','acousticness','duration_ms']
+colums_name=['valence','year','acousticness','danceability']
 ##las trasformamos el tipo(ya que Spark Ml,funciona solo con este tipo  )
 vec_assembler=VectorAssembler(inputCols=colums_name,outputCol='features')
 ##trandformamos nuestro data set al tipo deseado para Spark ML
@@ -59,7 +59,7 @@ data_to_train=data.select('features','explicit')
 data_to_train.printSchema()
 
 ##seleccionamos solo n columnas del dataset(por temas de limitacion de la MV)
-data_to_train=data_to_train.limit(100)
+data_to_train=data_to_train.limit(200)
 print("+++++++++")
 print(data_to_train.count())
 
