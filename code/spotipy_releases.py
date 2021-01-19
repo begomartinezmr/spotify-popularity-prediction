@@ -3,8 +3,8 @@ import spotipy
 import pandas as pd
 from spotipy.oauth2 import SpotifyClientCredentials
 
-sp_client_id = '77241797f1d24256abaacb3a588f00b4'
-sp_client_secret = '717102a2bde845ddb292ab6fb4332ced'
+sp_client_id = 'YOUR_CLIENT_ID'
+sp_client_secret = 'YOUR_CLIENT_SECRET'
 
 client_auth = SpotifyClientCredentials(client_id = sp_client_id, client_secret=sp_client_secret)
 
@@ -58,6 +58,3 @@ while True:
     elif not waiting:
         print("------- WAITING FOR NEW RELEASE -------\n")
         waiting = True
-
-#conn.shutdown(socket.SHUT_RDWR)
-#conn.close()

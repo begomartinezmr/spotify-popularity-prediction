@@ -50,7 +50,7 @@ values = tracks.map(lambda track: parse_track_line(track))
 tuples = values.map(lambda v: (v[0], np.asarray([v[1],v[2],v[3],v[4]], dtype=float)))
 # Make prediction
 prediction = tuples.map(lambda t: (t[0], lr.predict(t[1].reshape(1,-1))))
-# Prediction tuples as nice strings and transform predicted value to a range using mean_error
+# Format tuple as nice string and transfrom prediction as a range using mean_error
 predictionRange = prediction.map(lambda p: "%s\t > Predicted popularity: [%2f - %2f]" % (p[0], (p[1]-mean_error)[0], (p[1]+mean_error)[0]))
 # Print predictions
 predictionRange.pprint(100)
