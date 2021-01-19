@@ -35,11 +35,26 @@ Spotipy es una interfaz python que ofrece Spotify a los desarrolladores para ten
 
 ## Utilización de la aplicación
 Como ya detallamos en el anterior apartado *La aplicación*, el programa está formado por dos scripts de python comunicados a través de un socket, por lo que necesitaremos dos terminales en las que ejecutar cada uno de ellos.
- 1. Primero ejecutamos el script *spotify_releases.py* como un script python ordinario (asumiendo que se cumplen los requisitos de autenticación de spotify detallados en el apartado anterior)
+ 1.Para poder ejecutar la aplicación es necesario instalar las siguientes dependencias:
+ - **PySpark** siguiendo este [tutorial](https://medium.com/tinghaochen/how-to-install-pyspark-locally-94501eefe421)
+ - **Spotipy** , librería de python para conectar con la API de Spotify.
+ ```
+ $ pip install spotipy 
+ ```
+ - **SKlearn** , librería para construir los modelos de Machine Learning.
+ ```
+ $ pip install  -U scikit-learn 
+ ```
+ - [**Pandas**](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html) , librería de Python para el análisis de datos.
+ ```
+ $ pip install pandas 
+ ```
+
+ 2. Primero ejecutamos el script *spotify_releases.py* como un script python ordinario (asumiendo que se cumplen los requisitos de autenticación de spotify detallados en el apartado anterior)
  ```
  Terminal 1 $ python3 spotipy_releases.py
  ```
- 2. Cuando el primer proceso quede a la espera de una conexión TCP, lanzamos el script *spotify_processing.py* como un *spark job*
+ 3. Cuando el primer proceso quede a la espera de una conexión TCP, lanzamos el script *spotify_processing.py* como un *spark job*
   ```
  Terminal 2 $ spark-submit spotify_processing.py
  ```
