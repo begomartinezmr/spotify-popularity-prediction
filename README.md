@@ -70,6 +70,49 @@ Partiendo de un esquema similar en el que recibimos en streaming nuevas cancione
  ### Support vector machines SVM con kernel "gaussiano"
  Hemos empleaso Scikit-Learn con este modelo y se pretende predecir la popularidad y clasificarla en 100 clases (0...100). Con este modelo se obtuvo un porcentaje de acierto en torno al 60%.
 
+ ## Resultados
+ ### Terminal 1: Nuevos Lanzamientos de Spotify
+ Waiting for TCP connection...
+ 
+Connection established. Starting to receive new releases...
+
+--------- NEW ALBUM RELEASED ---------
+
+- Name: Utopia
+
+- Year: 2019
+
+- Tracks:
+
+--- Intro
+
+--- Canalla
+
+--- Payasos
+
+--- La Demanda
+
+--- Millonario
+
+--- El Beso Que No Le Di
+
+--- ileso
+
+--- Amor Enterrado
+
+--- Me Quedo
+
+--- Los Últimos
+
+--- Años Luz
+
+--- Bellas (feat. Romeo Santos)
+
+--- Inmortal
+
+------------------------------------------
+ 
+
 
  ## Autores
 Este proyecto ha sido desarrollado por cuatro estudiantes de Ingeniería Informática de la Facultad Informática de la universidad Complutense de Madrid.
