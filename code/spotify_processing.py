@@ -17,9 +17,6 @@ def parse_track_line(line):
     values[0].decode('ascii', errors='ignore')
     return values    
 
-def formatted_print(line):
-    print("%s\t\t\t Predicted punctuation: [%2f - %2f]" % (line[0], line[1][0], line[1][1]))
-
 print("Creating/training Linear Regression model...")
 
 # Load dataset for model training
@@ -53,8 +50,8 @@ values = tracks.map(lambda track: parse_track_line(track))
 tuples = values.map(lambda v: (v[0], np.asarray([v[1],v[2],v[3],v[4]], dtype=float)))
 # Make prediction
 prediction = tuples.map(lambda t: (t[0], lr.predict(t[1].reshape(1,-1))))
-# Use mean_error value to set prediction as range
-predictionRange = prediction.flatMap(lambda p: (p[0], ((p[1]-mean_error)[0], (p[1]+mean_error)[0])))
+# Prediction tuples as nice strings and transform predicted value to a range using mean_error
+predictionRange = prediction.map(lambda p: "%s\t > Predicted popularity: [%2f - %2f]" % (p[0], (p[1]-mean_error)[0], (p[1]+mean_error)[0]))
 # Print predictions
 predictionRange.pprint(100)
 
