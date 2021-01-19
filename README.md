@@ -1,4 +1,4 @@
-# Spotify Pop Predictor
+# Spotify Popularity Predictor
 Proyecto final de la asignatura Cloud Computing and Big Data de la Universidad Complutense de Madrid (Curso 2020-21)
 
 ## Introducción
@@ -158,6 +158,7 @@ El tiempo medio de análisis de 100 álbumes, es decir, aproximadamente unas 100
 - AWS
 - Spark
 - GitHub
+- Pandas
 
  ## Autores
 Este proyecto ha sido desarrollado por cuatro estudiantes de Ingeniería Informática de la Facultad Informática de la universidad Complutense de Madrid.
