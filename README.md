@@ -111,8 +111,53 @@ Connection established. Starting to receive new releases...
 --- Inmortal
 
 ------------------------------------------
- 
+### Terminal 2: Predicción
+- Intro → Predicted popularity: [51.089655 - 67.222184]
 
+- Canalla → Predicted popularity: [54.423761 - 70.556289]
+
+- Payasos → Predicted popularity: [54.038490 - 70.171018]
+
+- La Demanda → Predicted popularity: [54.627449 - 70.759977]
+
+- Millonario → Predicted popularity: [54.384552 - 70.517080]
+
+- El Beso Que No Le Di → Predicted popularity: [54.904522 - 71.037050]
+
+- Ileso → Predicted popularity: [54.383425 - 70.515953]
+
+- Amor Enterrado → Predicted popularity: [54.552172 - 70.684700]
+
+- Me Quedo → Predicted popularity: [54.127291 - 70.259819]
+
+- Los ltimos → Predicted popularity: [54.070513 - 70.203041]
+
+- Aos Luz → Predicted popularity: [54.461848 - 70.594376]]
+
+- Los ltimos → Predicted popularity: [54.070513 - 70.203041]
+
+- Bellas (feat. Romeo Santos) → Predicted popularity: [54.411454 - 70.543982]
+
+- Inmortal → Predicted popularity: [54.013395 - 70.145923]
+ 
+## Rendimiento
+
+El rendimiento está condicionado por factores externos como el número de álbumes y canciones que devuelve Spotipy o la latencia de comunicación con la API de Spotify. Es decir, la aplicación depdende de la velocidad con la que la API nos devuelve los nuevos lanzamientos.
+
+Las ejecuciones realizadas tanto el local como en AWS demuestran que la **conexión a la API de Spotify es un cuello de botella**. La aplicación podría no escalar con la misma eficiencia con la que escala nuestra infraestructura. El **escalado horizontal** de la aplicación, es decir, el aumentar el número de cores no provoca una mejora del rendimiento de la aplicación.
+
+El tiempo medio de análisis de 100 álbumes, es decir, aproximadamente unas 1000 canciones es de 2 minutos.
+
+## Herramientas usadas
+
+- SKlearn
+- Hadoop
+- Spotipy
+- Python
+- Github
+- AWS
+- Spark
+- GitHub
 
  ## Autores
 Este proyecto ha sido desarrollado por cuatro estudiantes de Ingeniería Informática de la Facultad Informática de la universidad Complutense de Madrid.
