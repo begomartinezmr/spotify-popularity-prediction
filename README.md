@@ -37,11 +37,11 @@ Spotipy es una interfaz python que ofrece Spotify a los desarrolladores para ten
 Como ya detallamos en el anterior apartado *La aplicación*, el programa está formado por dos scripts de python comunicados a través de un socket, por lo que necesitaremos dos terminales en las que ejecutar cada uno de ellos.
  1.Para poder ejecutar la aplicación es necesario instalar las siguientes dependencias:
  - **PySpark** siguiendo este [tutorial](https://medium.com/tinghaochen/how-to-install-pyspark-locally-94501eefe421)
- - **Spotipy** , librería de python para conectar con la API de Spotify.
+ - [**Spotipy**](https://github.com/plamere/spotipy/tree/2.16.1) , librería de python para conectar con la API de Spotify.
  ```
  $ pip install spotipy 
  ```
- - **SKlearn** , librería para construir los modelos de Machine Learning.
+ - [**SKlearn**](https://scikit-learn.org/stable/install.html) , librería para construir los modelos de Machine Learning.
  ```
  $ pip install  -U scikit-learn 
  ```
